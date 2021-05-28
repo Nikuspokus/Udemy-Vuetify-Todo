@@ -1,6 +1,6 @@
 <template>
   <v-snackbar
-      v-model="snackbar"
+      v-model="$store.state.snackbar.show"
     >
       {{ text }}
 
@@ -20,8 +20,7 @@
 <script>
   export default {
     data: () => ({
-      snackbar: true,
-      text: `Hello, I'm a snackbar`,
+      text: `Task added`,
     }),
   }
 </script>
