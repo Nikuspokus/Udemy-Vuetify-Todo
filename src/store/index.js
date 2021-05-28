@@ -24,8 +24,8 @@ export default new Vuex.Store({
     ],
     snackbar: {
       show: false,
-      text: ''
-    }
+      text: "",
+    },
   },
   mutations: {
     addTask(state, newTaskTitle) {
@@ -44,19 +44,26 @@ export default new Vuex.Store({
       state.tasks = state.tasks.filter((task) => task.id !== id);
     },
     showSnackbar(state, text) {
-      state.snackbar.show = true
-      state.snackbar.text = text
-    }
+      let timeout = 0
+      if (state.snackbar.show) {
+        state.snackbar.show = false;
+        timeout = 300
+      }
+      setTimeout(() => {
+        state.snackbar.show = true;
+        state.snackbar.text = text;
+      }, timeout);
+    },
   },
   actions: {
     addTask({ commit }, newTaskTitle) {
-      commit('addTask', newTaskTitle)
-      commit('showSnackbar', 'Task added !')
+      commit("addTask", newTaskTitle);
+      commit("showSnackbar", "Task added !");
     },
     deleteTask({ commit }, id) {
-      commit('deleteTask', id)
-      commit('showSnackbar', 'Task deleted !')
-    }
+      commit("deleteTask", id);
+      commit("showSnackbar", "Task deleted !");
+    },
   },
   getters: {},
   modules: {},
