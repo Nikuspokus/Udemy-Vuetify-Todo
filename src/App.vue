@@ -27,13 +27,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      color="primary"
-      dark
-      src="mountain.jpg"
-      prominent
-    >
+    <v-app-bar app color="primary" dark src="mountain.jpg" prominent>
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -62,11 +56,14 @@
 
     <v-main>
       <router-view></router-view>
+      <snackbar/>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import Snackbar from "./components/Shared/Snackbar";
+
 export default {
   data: () => ({
     drawer: null,
@@ -75,5 +72,8 @@ export default {
       { title: "About", icon: "mdi-help-box", to: "/about" },
     ],
   }),
+  components: {
+    snackbar: Snackbar
+  },
 };
 </script>
