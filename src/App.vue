@@ -1,11 +1,21 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer 
+    v-model="drawer" 
+    :mobile-breakpoint="768"
+    app>
       <v-img
+        class="pa-4 pt-7"
         src="mountain.jpg"
         height="170"
         gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
-      ></v-img>
+      >
+        <v-avatar size="70" class="mb-2">
+          <img src="photo-profil.jpg" alt="Nicolas" />
+        </v-avatar>
+        <div class="white--text text-subtitle-1 font-weight-bold">Nicolas Marquillier</div>
+        <div class="white--text text-subtitle-2 ">Nikus</div>
+      </v-img>
 
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
@@ -35,14 +45,14 @@
         ></v-img>
       </template>
 
-      <v-container>
+      <v-container class="header-container">
         <v-row>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-spacer></v-spacer>
           <search />
         </v-row>
         <v-row>
-          <v-app-bar-title class="text-h4 ml-4">
+          <v-app-bar-title class="text-h5 ml-4">
             Vuetify Todo
           </v-app-bar-title>
         </v-row>
@@ -79,3 +89,8 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+  .header-container 
+    max-width: none !important
+</style>
