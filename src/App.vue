@@ -1,18 +1,11 @@
 <template>
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="title">
-            Vuetify Todo
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            Beset Todo Ever
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
+      <v-img
+        src="mountain.jpg"
+        height="170"
+        gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+      ></v-img>
 
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
@@ -27,13 +20,13 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar 
-    app 
-    color="primary" 
-    dark 
-    src="mountain.jpg" 
-    prominent
-    height="170"
+    <v-app-bar
+      app
+      color="primary"
+      dark
+      src="mountain.jpg"
+      prominent
+      height="170"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -49,14 +42,12 @@
           <search />
         </v-row>
         <v-row>
-          <v-app-bar-title 
-          class="text-h4 ml-4"
-          >
-          Vuetify Todo
+          <v-app-bar-title class="text-h4 ml-4">
+            Vuetify Todo
           </v-app-bar-title>
         </v-row>
         <v-row>
-          <live-date-time/>
+          <live-date-time />
         </v-row>
       </v-container>
     </v-app-bar>
@@ -82,9 +73,9 @@ export default {
     ],
   }),
   components: {
-    'snackbar': Snackbar,
-    'search': Search,
-    'live-date-time': LiveDateTime,
+    snackbar: Snackbar,
+    search: Search,
+    "live-date-time": LiveDateTime,
   },
 };
 </script>
