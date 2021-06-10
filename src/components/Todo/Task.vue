@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-list-item
-      @click="$store.dispatch('doneTask', task.id)"
+      @click="$store.commit('doneTask', task.id)"
       :class="{ 'blue lighten-4': task.done }"
       class="white"
       :ripple="false"
