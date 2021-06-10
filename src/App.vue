@@ -1,9 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer 
-    v-model="drawer" 
-    :mobile-breakpoint="768"
-    app>
+    <v-navigation-drawer v-model="drawer" :mobile-breakpoint="768" app>
       <v-img
         class="pa-4 pt-7"
         src="mountain.jpg"
@@ -13,7 +10,9 @@
         <v-avatar size="70" class="mb-2">
           <img src="photo-profil.jpg" alt="Nicolas" />
         </v-avatar>
-        <div class="white--text text-subtitle-1 font-weight-bold">Nicolas Marquillier</div>
+        <div class="white--text text-subtitle-1 font-weight-bold">
+          Nicolas Marquillier
+        </div>
         <div class="white--text text-subtitle-2 ">Nikus</div>
       </v-img>
 
@@ -36,7 +35,7 @@
       dark
       src="mountain.jpg"
       prominent
-      height="170"
+      height="230"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -59,6 +58,9 @@
         <v-row>
           <live-date-time />
         </v-row>
+        <v-row>
+          <field-add-task />
+        </v-row>
       </v-container>
     </v-app-bar>
 
@@ -73,6 +75,8 @@
 import Snackbar from "./components/Shared/Snackbar";
 import Search from "./components/Tools/Search.vue";
 import LiveDateTime from "./components/Tools/LiveDateTime.vue";
+import FieldAddTask from "@/components/Todo/FieldAddTask.vue";
+
 
 export default {
   data: () => ({
@@ -83,17 +87,18 @@ export default {
     ],
   }),
   mounted() {
-    this.$store.dispatch('getTasks')
+    this.$store.dispatch("getTasks");
   },
   components: {
-    snackbar: Snackbar,
-    search: Search,
+    "snackbar": Snackbar,
+    "search": Search,
     "live-date-time": LiveDateTime,
+    "field-add-task": FieldAddTask,
   },
 };
 </script>
 
 <style lang="sass">
-  .header-container 
-    max-width: none !important
+.header-container
+  max-width: none !important
 </style>
