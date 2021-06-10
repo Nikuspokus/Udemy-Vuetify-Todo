@@ -82,7 +82,9 @@ export default {
       { title: "About", icon: "mdi-help-box", to: "/about" },
     ],
   }),
-
+  mounted() {
+    this.$store.dispatch('getTasks')
+  },
   components: {
     snackbar: Snackbar,
     search: Search,
