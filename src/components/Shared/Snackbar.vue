@@ -22,5 +22,7 @@
 </script>
 
 <style>
-
+  div.v-snack:not(.v-snack--absolute) {
+      height: 100%;
+  }
 </style>

@@ -60,6 +60,8 @@ export default {
         }
         this.$store.dispatch('updateTaskTitle', payload)
         this.$emit('close')
+        // permet de faire un "focus, un goTo" sur l'element modifier et sauvegardé
+        this.$vuetify.goTo(0, { duration: 0 })
       }
     }
   },
